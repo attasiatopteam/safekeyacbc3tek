@@ -1,9 +1,9 @@
 const express = require('express')
 const Router = express.Router()
-const qrDecode = require('../controllers/qrreceiver.controller')
+const sender = require('../controllers/qrcodesender.controller')
 
 Router.route('/').post(
-    qrDecode
+    sender
 )
 
 module.exports = Router
