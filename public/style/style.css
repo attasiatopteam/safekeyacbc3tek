@@ -42,7 +42,7 @@ body .scene_saturn__ring .layer_part, body .scene_saturn__ring .small_part, body
     height: 21px;
     border-radius: 100%;
     transform-style: preserve-3d;
-    box-shadow: 0px 200px 20px #291863;
+    box-shadow: 0px 200px 20px black;
     -webkit-animation: titan 6s infinite ease;
             animation: titan 6s infinite ease;
     bottom: 400px;
@@ -88,13 +88,13 @@ body .scene_saturn__ring .layer_part, body .scene_saturn__ring .small_part, body
     width: 152px;
     height: 38px;
     border-radius: 100%;
-    box-shadow: 0 150px 40px #291863;
+    box-shadow: 0 150px 40px black;
   }
   body .scene_saturn__shadowRing {
     width: 330px;
     height: 19px;
     border-radius: 100%;
-    box-shadow: 0 150px 40px #291863;
+    box-shadow: 0 150px 40px black;
     left: -100px;
     -webkit-animation: ringShadow 0.6s infinite linear;
             animation: ringShadow 0.6s infinite linear;
