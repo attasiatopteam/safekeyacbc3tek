@@ -16,7 +16,7 @@ body .scene_saturn__ring .layer_part, body .scene_saturn__ring .small_part, body
   body .scene_saturn__face .face_clip .eye, body .scene_titan .eyes .eye {
     width: 6px;
     height: 6px;
-    background: #53487a;
+    background: #262626;
     border-radius: 10px;
     bottom: 34px;
     -webkit-animation: blink 1s 0s infinite linear;
