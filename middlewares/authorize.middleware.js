@@ -1,21 +1,13 @@
-var axios = require('axios');
-module.exports = (req,res,next)=>{
-    let {...body} = req.headers
-    let pass = btoa(body.user+":"+body.password)
-    let config = {
-        method: 'get',
-        url: 'http://localhost:8090/TotalControl/v2/login',
-        headers: { 
-            'Authorization': pass
-        }
-    };
-    axios(config).then(function (response) {
-        req.token = response.data.value.token;
-        next()
-    }).catch(function (error) {
+const authorization = require('../models/authorization.models')
+module.exports = async(req,res,next)=>{
+    let checkAutho = await authorization.findOne({auth:req.headers.authorization})
+    if(!checkAutho){
         res.json({
-            status:401,
-            mess:"Sai thông tin đăng nhập"
-        });
-    });
+            code:401,
+            mess:"Unauthorization"
+        })
+    }else{
+        req.device = checkAutho.device
+        next()
+    }
 }

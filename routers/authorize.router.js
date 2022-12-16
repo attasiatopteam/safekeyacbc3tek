@@ -1,10 +1,15 @@
 const express = require('express')
 const Router = express.Router()
-const token = require('../middlewares/authorize.middleware')
-const authorize = require('../controllers/authorize.controller')
+const {
+    create,
+    read
+} = require('../controllers/authorize.controller')
 Router.route('/').get(
-    token,
-    authorize
+    read
+)
+
+Router.route('/').post(
+    create
 )
 
 module.exports = Router

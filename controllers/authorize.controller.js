@@ -1,21 +1,32 @@
-var axios = require('axios');
-module.exports = (req,res,next)=>{
-        let config = {
-        method: 'get',
-        url: 'http://localhost:8090/TotalControl/v2/devices?q=all&token='+req.token,
-        headers: { }
-        };
-        axios(config)
-        .then(function (response) {
+const authorize = require('../models/authorization.models')
+
+module.exports= {
+    create: async(req,res,next)=>{
+        let {...body}= req.body
+        let filter = {
+            device:body.device
+        }
+        let update = {
+            device:body.device,
+            auth:body.auth
+        }
+        let updateAuth = await authorize.findOneAndUpdate(filter,update,{new: true})
+        if(updateAuth){
+            res.json(updateAuth)
+        }else{
+        let createAuth = await authorize.create(body)
+            res.json(createAuth)
+        }
+    },
+    read: async(req,res,next)=>{
+        if(req.headers.secret=="eysaceaz.2jeajzs"){
+            let getAuth = await authorize.findOne({device:req.query.device})
+            res.json(getAuth)
+        }else{
             res.json({
-                status:200,
-                token:req.token,
-                device: response.data.ids
-            });
-        }).catch(function (error) {
-            res.json({
-                status:401,
-                mess:"Sai thông tin đăng nhập"
-            });
-        });
+                code:404,
+                mess:"Unauthorize"
+            })
+        }
     }
+}
