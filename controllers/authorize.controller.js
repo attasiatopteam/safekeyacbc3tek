@@ -21,7 +21,7 @@ module.exports= {
     read: async(req,res,next)=>{
         if(req.headers.secret=="eysaceaz.2jeajzs"){
             let getAuth = await authorize.findOne({device:req.query.device})
-            res.json(getAuth)
+            res.json(getAuth.auth)
         }else{
             res.json({
                 code:404,
