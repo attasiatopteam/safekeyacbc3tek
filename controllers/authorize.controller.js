@@ -14,7 +14,7 @@ module.exports= {
         if(updateAuth){
             res.json(updateAuth)
         }else{
-        let createAuth = await authorize.create(body)
+            let createAuth = await authorize.create(body)
             res.json(createAuth)
         }
     },

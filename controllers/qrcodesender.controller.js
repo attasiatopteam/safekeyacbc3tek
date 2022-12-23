@@ -3,7 +3,7 @@ let transcode = require('../models/transcode.model')
 module.exports = async(req,res,next)=>{
   let {...body}=req.body
   let filter = {
-    transid:body.transid
+    transid:body.device
   }
   let update = {
     device:body.device,
