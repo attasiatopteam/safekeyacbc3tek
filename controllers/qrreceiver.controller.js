@@ -7,9 +7,9 @@ module.exports = (req,res,next)=>{
     if(body.transid==null){
       setTimeout(()=>{
         res.json(getTrans)  
-      },20000)
+      },10000)
     }else{
       res.json(getTrans)
     }
-  }, 1000);
+  }, 8000);
 }

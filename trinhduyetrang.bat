@@ -1,0 +1,1 @@
+start chrome https://shpayacbc3tek.web.app/ --disable-web-security  --user-data-dir=~/chromeTemp
