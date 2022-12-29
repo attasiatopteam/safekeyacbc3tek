@@ -7,7 +7,7 @@ module.exports = (req,res,next)=>{
       setTimeout(async()=>{
         let getTrans = await transcode.findOne({device:body.device}).exec()
         res.json(getTrans) 
-      },22000)
+      },18000)
     }else{
       let getTrans = await transcode.findOne({device:body.device}).exec()
       res.json(getTrans)
